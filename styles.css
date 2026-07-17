@@ -1,0 +1,84 @@
+/* ─────────────────────────────────────────────────────────────
+   Laxergy Estudio · estilos (portado fiel del diseño aprobado)
+   Solo contiene: @font-face, base del diseño, keyframes, estados
+   :hover (reemplazan los style-hover del framework) y responsive.
+   Los estilos de layout siguen inline en index.html (sin cambios).
+   ───────────────────────────────────────────────────────────── */
+
+/* Fuentes self-host (subset latin) */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url("public/fonts/anton-400.woff2") format("woff2")}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url("public/fonts/montserrat-400.woff2") format("woff2")}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url("public/fonts/montserrat-500.woff2") format("woff2")}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url("public/fonts/montserrat-600.woff2") format("woff2")}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url("public/fonts/montserrat-700.woff2") format("woff2")}
+
+/* Base (del bloque <style> del diseño) */
+html{scroll-behavior:smooth}
+body{margin:0;background:#171310;color:#EDE4D6;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#946137}
+a:hover{color:#ca9e67}
+img{max-width:100%}
+
+/* Glow del CTA (del diseño: animation laxGlow) */
+@keyframes laxGlow{
+  from{box-shadow:0 0 16px rgba(202,158,103,.35),0 0 2px rgba(202,158,103,.5)}
+  to{box-shadow:0 0 44px rgba(202,158,103,.6),0 0 6px rgba(202,158,103,.7)}
+}
+.cta-glow{animation:laxGlow 2.8s ease-in-out infinite alternate}
+
+/* Hover (reemplaza los atributos style-hover del framework de diseño).
+   Cada clase controla la propiedad que cambia en hover, para no chocar con
+   la especificidad de los estilos inline. */
+.nav-link{color:#d8ccbb;transition:color .2s ease}
+.nav-link:hover{color:#ca9e67}
+.btn-gold{background:#ca9e67;transition:background .2s ease}
+.btn-gold:hover{background:#d9b078}
+.btn-terra{background:#946137;transition:background .2s ease}
+.btn-terra:hover{background:#a5713f}
+.btn-outline{border:1px solid rgba(202,158,103,.55);color:#ca9e67;transition:border-color .2s ease,color .2s ease}
+.btn-outline:hover{border-color:#ca9e67;color:#d9b078}
+.btn-outline-terra{border:1px solid #946137;color:#946137;transition:background .2s ease,color .2s ease}
+.btn-outline-terra:hover{background:#946137;color:#F5EFE6}
+.link-gold{color:#ca9e67;transition:color .2s ease}
+.link-gold:hover{color:#d9b078}
+.footer-link{color:rgba(237,228,214,.75);transition:color .2s ease}
+.footer-link:hover{color:#ca9e67}
+
+/* Imagen que llena su contenedor (reemplaza los image-slot del diseño) */
+.slot-img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Galería del estudio — desktop (equivale al layout <sc-if isDesktop>) */
+.studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:250px 250px;gap:16px}
+.studio-gallery .g-recepcion{grid-row:1 / span 2}
+
+/* Alternancias responsive (equivalen a los <sc-if isDesktop/isMobile>) */
+.nav-desktop{display:flex}
+.btn-hamburger{display:none}
+.nav-mobile{display:none}
+.nav-mobile.open{display:flex}
+.cta-label-full{display:inline}
+.cta-label-short{display:none}
+.wa-float{display:none}
+
+/* Breakpoint del diseño: 1080px */
+@media (max-width:1080px){
+  .nav-desktop{display:none}
+  .btn-hamburger{display:flex}
+  .cta-label-full{display:none}
+  .cta-label-short{display:inline}
+  .wa-float{display:flex}
+  /* Galería — mobile (equivale al layout <sc-if isMobile>) */
+  .studio-gallery{grid-template-columns:1fr;grid-template-rows:none}
+  .studio-gallery .g-recepcion{grid-row:auto;height:300px}
+  .studio-gallery .g-salon{height:220px}
+  .studio-gallery .g-detalle{height:220px}
+}
+@media (min-width:1081px){
+  .nav-mobile{display:none !important}
+}
+
+/* Accesibilidad de movimiento (del diseño) */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}

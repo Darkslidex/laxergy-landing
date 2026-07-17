@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laxergy Estudio · Baile, yoga, pilates y funcional en Carrizal</title>
+<meta name="description" content="Estudio fitness presencial en Carrizal: baile, yoga, pilates, barré y entrenamiento funcional en grupos reducidos. Reserva tu clase.">
+
+<!-- ETAPA PROVISIONAL: no indexar. Quitar esta etiqueta al migrar al dominio final (ver README). -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ═════════════════════════════════════════════════════════════════
+     SITE_URL · dominio canónico. ÚNICO lugar a cambiar en el HTML al
+     migrar de laxergy.techcam.com.ar a https://laxergy.com:
+     canonical + Open Graph (og:url, og:image) + JSON-LD (url, image).
+     ═════════════════════════════════════════════════════════════════ -->
+<link rel="canonical" href="https://laxergy.techcam.com.ar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Laxergy Estudio">
+<meta property="og:locale" content="es_VE">
+<meta property="og:title" content="Laxergy Estudio · Movimiento con intención en Carrizal">
+<meta property="og:description" content="Baile, yoga, pilates, barré y entrenamiento funcional en grupos reducidos. Reserva tu clase.">
+<meta property="og:url" content="https://laxergy.techcam.com.ar/">
+<meta property="og:image" content="https://laxergy.techcam.com.ar/public/hero-salon.webp">
+<!-- ═════════════════════════════════════════════════════════════════ -->
+
+<meta name="theme-color" content="#171310">
+<link rel="icon" href="public/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="public/apple-touch-icon.png">
+
+<!-- Preload solo de la fuente principal (titulares) + imagen LCP del hero -->
+<link rel="preload" href="public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="public/hero-salon.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExerciseGym","name":"Laxergy Estudio","slogan":"El movimiento es esfuerzo, bienestar y evolución consciente","url":"https://laxergy.techcam.com.ar/","image":"https://laxergy.techcam.com.ar/public/hero-salon.webp","address":{"@type":"PostalAddress","streetAddress":"C.C. Monte Bello Plaza, local 19","addressLocality":"Carrizal","addressRegion":"Miranda","addressCountry":"VE"},"telephone":"+584249446548","email":"laxergybienestar@gmail.com","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/laxergybienestar"]}</script>
+
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<!-- [00] HEADER -->
+<header style="position:sticky;top:0;z-index:60;background:rgba(23,19,16,.97);border-bottom:1px solid rgba(202,158,103,.18)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px);height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="#top" style="display:flex;align-items:baseline;gap:10px;text-decoration:none">
+      <span style="font-family:'Anton',sans-serif;font-size:24px;letter-spacing:.06em;color:#F5EFE6">LAXERGY</span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.34em;color:#ca9e67">ESTUDIO</span>
+    </a>
+    <nav class="nav-desktop" style="gap:clamp(18px,3vw,36px);align-items:center">
+      <a class="nav-link" href="#clases" style="font-size:12px;font-weight:600;letter-spacing:.18em;text-decoration:none">CLASES</a>
+      <a class="nav-link" href="#ubicacion" style="font-size:12px;font-weight:600;letter-spacing:.18em;text-decoration:none">UBICACIÓN</a>
+      <a class="nav-link" href="#contacto" style="font-size:12px;font-weight:600;letter-spacing:.18em;text-decoration:none">CONTACTO</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a class="btn-gold" id="cta-header-reservar" data-analytics="reservar" href="https://laxergy.simplybook.me/" target="_blank" rel="noopener noreferrer" style="color:#171310;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;padding:11px 16px;border-radius:3px;white-space:nowrap"><span class="cta-label-full">ÁREA DE ALUMNAS · RESERVAR CLASE</span><span class="cta-label-short">RESERVAR</span></a>
+      <button class="btn-hamburger" id="menu-toggle" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu" style="background:none;border:1px solid rgba(202,158,103,.4);border-radius:3px;width:40px;height:40px;flex-direction:column;gap:5px;align-items:center;justify-content:center;cursor:pointer">
+        <span style="display:block;width:18px;height:2px;background:#ca9e67"></span>
+        <span style="display:block;width:18px;height:2px;background:#ca9e67"></span>
+        <span style="display:block;width:18px;height:2px;background:#ca9e67"></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile" id="mobile-menu" style="flex-direction:column;background:#171310;border-bottom:1px solid rgba(202,158,103,.2);padding:8px clamp(16px,4vw,40px) 20px">
+    <a href="#clases" style="font-size:13px;font-weight:600;letter-spacing:.18em;text-decoration:none;color:#d8ccbb;padding:14px 0;border-bottom:1px solid rgba(202,158,103,.12)">CLASES</a>
+    <a href="#ubicacion" style="font-size:13px;font-weight:600;letter-spacing:.18em;text-decoration:none;color:#d8ccbb;padding:14px 0;border-bottom:1px solid rgba(202,158,103,.12)">UBICACIÓN</a>
+    <a href="#contacto" style="font-size:13px;font-weight:600;letter-spacing:.18em;text-decoration:none;color:#d8ccbb;padding:14px 0">CONTACTO</a>
+  </nav>
+</header>
+
+<!-- [01] HERO -->
+<section id="top" style="position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden">
+  <div style="position:absolute;inset:0">
+    <img class="slot-img" src="public/hero-salon.webp" alt="Salón de Laxergy Estudio: barras doradas y espejos" width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,16,.45) 0%,rgba(23,19,16,.55) 45%,rgba(23,19,16,.92) 100%);pointer-events:none"></div>
+  <div style="position:relative;z-index:2;pointer-events:none;max-width:1240px;margin:0 auto;width:100%;padding:140px clamp(16px,4vw,40px) clamp(56px,8vh,96px)">
+    <h1 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(34px,5.6vw,74px);line-height:1.08;letter-spacing:.015em;color:#F5EFE6;margin:0;max-width:19ch;text-wrap:pretty">EL MOVIMIENTO ES ESFUERZO, BIENESTAR Y <span style="color:#ca9e67">EVOLUCIÓN CONSCIENTE.</span></h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.65;color:rgba(237,228,214,.85);max-width:52ch;margin:22px 0 34px">Estudio fitness presencial en Carrizal. Baile, yoga, pilates y entrenamiento funcional en un espacio diseñado para que entrenes con intención.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;pointer-events:auto">
+      <a class="btn-gold cta-glow" id="cta-hero-reservar" data-analytics="reservar" href="https://laxergy.simplybook.me/" target="_blank" rel="noopener noreferrer" style="color:#171310;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.14em;padding:17px 34px;border-radius:3px;box-shadow:0 0 24px rgba(202,158,103,.4)">RESERVAR MI CLASE</a>
+      <a class="btn-outline" id="cta-hero-whatsapp" data-analytics="whatsapp" href="https://wa.me/584249446548" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.1em;padding:17px 28px;border-radius:3px">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- [02] EL ESTUDIO -->
+<section style="background:#F5EFE6;color:#3a2f26;padding:clamp(64px,9vw,120px) clamp(16px,4vw,40px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p style="font-size:11px;font-weight:600;letter-spacing:.3em;color:#946137;margin:0 0 14px">EL ESTUDIO</p>
+    <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:.02em;color:#171310;margin:0 0 18px">UN ESPACIO PENSADO PARA TI</h2>
+    <p style="font-size:16px;line-height:1.7;max-width:58ch;margin:0 0 44px">Salón amplio, iluminación cálida y equipamiento cuidado. Entrenas en grupos reducidos, con instructores que te acompañan clase a clase.</p>
+    <div class="studio-gallery">
+      <div class="g-recepcion"><img class="slot-img" src="public/estudio-recepcion.webp" alt="Recepción del estudio: madera retroiluminada y logo terracota" width="900" height="1160" loading="lazy" decoding="async"></div>
+      <div class="g-salon"><img class="slot-img" src="public/estudio-salon.webp" alt="Salón de clases" width="900" height="560" loading="lazy" decoding="async"></div>
+      <div class="g-detalle"><img class="slot-img" src="public/estudio-detalle.webp" alt="Detalle del espacio" width="900" height="560" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- [03] CLASES -->
+<section id="clases" style="background:#171310;padding:clamp(64px,9vw,120px) clamp(16px,4vw,40px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <p style="font-size:11px;font-weight:600;letter-spacing:.3em;color:#ca9e67;margin:0 0 14px">DISCIPLINAS</p>
+    <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:.02em;color:#F5EFE6;margin:0 0 44px">NUESTRAS CLASES</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));column-gap:clamp(24px,4vw,64px)">
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">BAILE</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Suelta el cuerpo y suda al ritmo de la música.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">YOGA</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Fuerza, flexibilidad y calma en una misma práctica.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">PILATES</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Control, postura y centro. Trabajo profundo y preciso.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">BARRÉ</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Técnica de ballet + fitness para esculpir y alargar.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">GLUTAB</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Enfoque total en glúteos y abdomen.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">FUNCIONALES</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Entrenamiento completo para moverte mejor todos los días.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">FIT COMBAT</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Descarga energía con movimientos de combate al ritmo de la música.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">FIT TARGET</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Trabajo dirigido por zonas para objetivos específicos.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">STRETCHING</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Recupera, elonga y gana movilidad.</p></div>
+      <div style="border-top:1px solid rgba(202,158,103,.25);padding:20px 0 24px"><h3 style="font-family:'Anton',sans-serif;font-weight:400;font-size:23px;letter-spacing:.04em;color:#ca9e67;margin:0 0 6px">BALLET</h3><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.72);margin:0">Disciplina, elegancia y técnica clásica.</p></div>
+    </div>
+    <div style="border-top:1px solid rgba(202,158,103,.25);margin-top:0;padding-top:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:52ch"><p style="font-size:14px;line-height:1.6;color:rgba(237,228,214,.8);margin:0">También ofrecemos horarios de entrenamientos <strong style="color:#ca9e67">PERSONALIZADOS</strong> de lunes a viernes al mediodía.</p><p style="font-size:13px;line-height:1.6;color:rgba(237,228,214,.55);margin:0">Consulta los horarios y la disponibilidad en tiempo real al reservar tu clase.</p></div>
+      <a class="btn-terra" id="cta-clases-reservar" data-analytics="reservar" href="https://laxergy.simplybook.me/" target="_blank" rel="noopener noreferrer" style="color:#F5EFE6;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.14em;padding:15px 28px;border-radius:3px;white-space:nowrap">RESERVAR MI CLASE</a>
+    </div>
+  </div>
+</section>
+
+<!-- [06] MEMBRESÍA -->
+<section style="background:#F5EFE6;color:#3a2f26;padding:clamp(64px,9vw,120px) clamp(16px,4vw,40px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:.02em;color:#171310;margin:0 0 44px">CÓMO EMPEZAR</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(24px,4vw,56px)">
+      <div style="border-top:2px solid #946137;padding-top:20px">
+        <div style="font-family:'Anton',sans-serif;font-size:44px;color:#946137;line-height:1">01</div>
+        <p style="font-size:15px;line-height:1.7;margin:14px 0 0">Regístrate en el área de alumnas y elige tu membresía mensual de fichas.</p>
+      </div>
+      <div style="border-top:2px solid #946137;padding-top:20px">
+        <div style="font-family:'Anton',sans-serif;font-size:44px;color:#946137;line-height:1">02</div>
+        <p style="font-size:15px;line-height:1.7;margin:14px 0 0">Reserva tu cupo en la clase y horario que prefieras.</p>
+      </div>
+      <div style="border-top:2px solid #946137;padding-top:20px">
+        <div style="font-family:'Anton',sans-serif;font-size:44px;color:#946137;line-height:1">03</div>
+        <p style="font-size:15px;line-height:1.7;margin:14px 0 0">Ven al estudio y entrena. Tus fichas se renuevan cada mes.</p>
+      </div>
+    </div>
+    <p style="margin:40px 0 0;font-size:14px">¿Dudas con tu membresía? <a href="https://wa.me/584249446548" target="_blank" rel="noopener noreferrer" style="color:#946137;font-weight:600">Escríbenos por WhatsApp</a>.</p>
+  </div>
+</section>
+
+<!-- [07] UBICACIÓN -->
+<section id="ubicacion" style="background:#F5EFE6;color:#3a2f26;padding:0 clamp(16px,4vw,40px) clamp(64px,9vw,120px)">
+  <div style="max-width:1240px;margin:0 auto;border-top:1px solid rgba(23,19,16,.12);padding-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,64px);align-items:start">
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:.3em;color:#946137;margin:0 0 14px">UBICACIÓN</p>
+      <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:.02em;color:#171310;margin:0 0 22px">ENCUÉNTRANOS</h2>
+      <p style="font-size:15px;line-height:1.8;margin:0 0 18px">C.C. Monte Bello Plaza, local 19<br>Carrizal, estado Miranda</p>
+      <p style="font-size:14px;line-height:1.8;margin:0 0 26px;color:#6b5947"><strong style="color:#171310">Horario del estudio</strong><br>Lunes a viernes · 6:00 AM – 9:00 PM<br>Sábados · clases especiales</p>
+      <a class="btn-outline-terra" href="https://maps.google.com/?q=C.C.+Monte+Bello+Plaza,+Carrizal,+Miranda,+Venezuela" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.14em;padding:13px 24px;border-radius:3px">CÓMO LLEGAR</a>
+    </div>
+    <div style="height:clamp(280px,36vw,420px)">
+      <iframe title="Mapa: Laxergy Estudio" src="https://www.google.com/maps?q=C.C.%20Monte%20Bello%20Plaza%2C%20Carrizal%2C%20Miranda%2C%20Venezuela&output=embed" style="width:100%;height:100%;border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- [08] CTA FINAL -->
+<section style="background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(148,97,55,.28) 0%,rgba(23,19,16,0) 70%),#171310;padding:clamp(90px,12vw,160px) clamp(16px,4vw,40px);text-align:center">
+  <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:30px">
+    <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,4.6vw,58px);letter-spacing:.02em;line-height:1.15;color:#F5EFE6;margin:0;text-wrap:pretty">TU PRÓXIMA CLASE TE ESTÁ ESPERANDO.</h2>
+    <a class="btn-gold cta-glow" id="cta-final-reservar" data-analytics="reservar" href="https://laxergy.simplybook.me/" target="_blank" rel="noopener noreferrer" style="color:#171310;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.14em;padding:20px 44px;border-radius:3px;box-shadow:0 0 30px rgba(202,158,103,.45)"><span class="cta-label-full">ÁREA DE ALUMNAS · RESERVAR CLASE</span><span class="cta-label-short">RESERVAR</span></a>
+    <a class="link-gold" id="cta-final-whatsapp" data-analytics="whatsapp" href="https://wa.me/584249446548" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.06em;border-bottom:1px solid rgba(202,158,103,.4);padding-bottom:3px">Escríbenos por WhatsApp</a>
+  </div>
+</section>
+
+<!-- [09] FOOTER -->
+<footer id="contacto" style="background:#100d0a;padding:clamp(48px,6vw,72px) clamp(16px,4vw,40px) 32px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(202,158,103,.15)">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+          <span style="font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.06em;color:#F5EFE6">LAXERGY</span>
+          <span style="font-size:9px;font-weight:600;letter-spacing:.34em;color:#ca9e67">ESTUDIO</span>
+        </div>
+        <p style="font-size:13px;line-height:1.8;color:rgba(237,228,214,.6);margin:0">C.C. Monte Bello Plaza, local 19<br>Carrizal, Miranda, Venezuela</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a class="footer-link" href="https://wa.me/584249446548" target="_blank" rel="noopener noreferrer" style="font-size:13px;text-decoration:none">WhatsApp · +58 424 9446548</a>
+        <a class="footer-link" href="mailto:laxergybienestar@gmail.com" style="font-size:13px;text-decoration:none">laxergybienestar@gmail.com</a>
+        <a class="footer-link" href="https://www.instagram.com/laxergybienestar" target="_blank" rel="noopener noreferrer" style="font-size:13px;text-decoration:none">Instagram · @laxergybienestar</a>
+      </div>
+    </div>
+    <p style="font-size:11px;letter-spacing:.08em;color:rgba(237,228,214,.4);margin:24px 0 0">© 2026 LAXERGY ESTUDIO · El movimiento es esfuerzo, bienestar y evolución consciente.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante (solo mobile) -->
+<a class="wa-float" aria-label="WhatsApp" id="cta-flotante-whatsapp" data-analytics="whatsapp" href="https://wa.me/584249446548" target="_blank" rel="noopener noreferrer" style="position:fixed;bottom:18px;right:18px;z-index:70;width:52px;height:52px;border-radius:50%;background:#171310;border:1px solid rgba(202,158,103,.6);align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.4);text-decoration:none">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#ca9e67" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.2-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3z"></path></svg>
+</a>
+
+</body>
+</html>
