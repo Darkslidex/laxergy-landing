@@ -89,7 +89,10 @@ Mismo patrón que las otras landings del equipo (Landing-Hogar).
    - Domain: `https://laxergy.techcam.com.ar`. Puerto expuesto: `80` (Coolify inyecta `PORT`,
      el `Dockerfile` lo adapta).
    - SSL: **Let's Encrypt** automático. Forzar **HTTP → HTTPS**.
-4. Deploy. Anotar acá el UUID de la app de Coolify: `__PENDIENTE__`.
+4. Deploy. Referencias en Coolify (bunker):
+   - Proyecto `laxergy` · UUID `lnqrst2b5ezh1y5fpebw53no`.
+   - App `laxergy-landing` · UUID `edc3d8ran0b2ie4txq39pro6` · entorno `production`.
+   - Desplegado el 2026-07-17 en https://laxergy.techcam.com.ar (HTTP/2 200, HTTP→HTTPS 307, cert vía Cloudflare + Let's Encrypt).
 
 > Coolify genera los labels de Traefik y gestiona el certificado; no se editan labels a mano.
 
