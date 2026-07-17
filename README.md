@@ -42,20 +42,26 @@ docker run --rm -p 8080:80 laxergy-landing
 # → http://localhost:8080   ·   curl -I http://localhost:8080 para ver las cabeceras
 ```
 
-## Reemplazar los placeholders por las fotos reales
+## Reemplazar las imágenes por nuevas fotos
 
-Los `image-slot` del diseño se portaron a `<img>` con nombres descriptivos. Para poner las fotos
-de la clienta, reemplazar los archivos en `public/` **manteniendo el nombre**:
+Los `image-slot` del diseño se portaron a `<img>`. Fotos reales actuales (versión `-v1`):
 
-| Archivo                        | Qué va                                              |
-|--------------------------------|-----------------------------------------------------|
-| `public/hero-salon.webp`       | Hero: salón (barras doradas / espejos). Es el LCP.  |
-| `public/estudio-recepcion.webp`| Recepción (vertical).                               |
-| `public/estudio-salon.webp`    | Salón de clases.                                    |
-| `public/estudio-detalle.webp`  | Detalle del espacio.                                |
+| Archivo                           | Qué va                                              |
+|-----------------------------------|-----------------------------------------------------|
+| `public/hero-salon-v1.webp`       | Hero: fondo (LCP). **Provisional:** recepción oscurecida hasta tener foto ancha dedicada. |
+| `public/estudio-recepcion-v1.webp`| Recepción (tile grande, vertical).                  |
+| `public/estudio-salon-v1.webp`    | Salón de clases.                                    |
+| `public/estudio-detalle-v1.webp`  | Detalle del espacio.                                |
 
-Recomendado: exportar a `.webp`, ancho ≤ 1600px, calidad ~80. El `<img>` ya trae `width/height`,
-`loading`/`fetchpriority` y `alt`; no hace falta tocar el HTML si se respeta el nombre.
+Recomendado: exportar a `.webp`, ancho ≤ 1600px, calidad ~80.
+
+> **IMPORTANTE — caché de Cloudflare.** Los assets se sirven con `Cache-Control: max-age=604800`
+> (7 días) y Cloudflare los cachea en el edge bajo el mismo nombre. Reemplazar un `.webp`
+> *con el mismo nombre* NO se ve hasta que expire la caché. Por eso, al cambiar una foto:
+> **subir el número de versión del archivo** (`-v1` → `-v2`) y actualizar su referencia en `index.html`
+> (para el hero son 4 refs: `<img>`, `preload`, `og:image` y el `image` del JSON-LD; para los demás,
+> el `<img src>`). URL nueva = sin caché previa, sin depender de purgar Cloudflare (el token del VPS
+> no tiene permiso de purga). Luego `git push` + redeploy.
 
 ## Seguridad (nginx.conf)
 
