@@ -1,6 +1,6 @@
 # Laxergy Estudio — Landing (TC-2026-001)
 
-Landing estática de **Laxergy Estudio** (Carrizal, Miranda, Venezuela). Portada del diseño aprobado
+Landing estática de **Laxergy Estudio** (Altos Mirandinos, Miranda, Venezuela). Portada del diseño aprobado
 en Claude Design a HTML/CSS/JS vanilla, servida con nginx en Docker (Coolify, VPS bunker).
 
 - **Dominio provisional:** https://laxergy.techcam.com.ar (presentación a la clienta).
