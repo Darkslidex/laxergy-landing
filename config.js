@@ -8,7 +8,7 @@ window.LAXERGY_CONFIG = {
 
   // Conversión (coincide con los href del HTML; estos no cambian al migrar de dominio).
   BOOKING_URL: "https://laxergy.simplybook.me/",
-  WHATSAPP: "584249446548",
+  WHATSAPP: "584246446679",
 
   // Analítica GA4 — placeholder hasta crear la propiedad en el dominio final.
   GA4_ID: "G-XXXXXXXXXX",
