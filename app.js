@@ -1,6 +1,6 @@
 /* Laxergy Estudio · JS vanilla
    1) Menú mobile (reemplaza toggleMenu/closeMenu del framework de diseño).
-   2) Medición GA4 — preparada pero APAGADA mientras PROVISIONAL = true.
+   2) Medición GA4 — preparada pero APAGADA mientras ANALYTICS_ENABLED sea false.
    Sin PII. Todo con addEventListener (sin handlers inline, compatible con la CSP). */
 (function () {
   "use strict";
@@ -30,8 +30,8 @@
     });
   }
 
-  /* ── 2) Medición GA4 (gated por PROVISIONAL) ── */
-  if (cfg.PROVISIONAL === true) return;               // presentación: no cargar GA4
+  /* ── 2) Medición GA4 (gated por ANALYTICS_ENABLED, independiente de PROVISIONAL) ── */
+  if (cfg.ANALYTICS_ENABLED !== true) return;         // analítica apagada: no cargar GA4
   var id = cfg.GA4_ID;
   if (!id || id.indexOf("G-") !== 0 || id === "G-XXXXXXXXXX") return;  // sin ID real: no cargar
 

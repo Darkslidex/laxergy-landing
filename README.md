@@ -3,8 +3,8 @@
 Landing estática de **Laxergy Estudio** (Altos Mirandinos, Miranda, Venezuela). Portada del diseño aprobado
 en Claude Design a HTML/CSS/JS vanilla, servida con nginx en Docker (Coolify, VPS bunker).
 
-- **Dominio provisional:** https://laxergy.techcam.com.ar (presentación a la clienta).
-- **Dominio final:** https://laxergy.com (se compra y migra al recibir el primer pago).
+- **Dominio de producción:** https://laxergyestudio.com (+ `www`). Migrado el **2026-07-25**.
+- **Dominio provisional:** https://laxergy.techcam.com.ar — sigue activo, responde **301** al dominio final.
 - Sin backend: la conversión es el botón de reservas (SimplyBook.me) y WhatsApp.
 
 ## Stack y estructura
@@ -15,8 +15,11 @@ localmente (nada de CDNs).
 ```
 index.html          Página (una sola). Estilos de layout inline (fiel al diseño).
 styles.css          @font-face, base, keyframes, :hover y responsive.
-app.js              Menú mobile + GA4 (apagada por PROVISIONAL) + eventos + UTMs.
-config.js           Config única JS: SITE_URL, BOOKING_URL, WHATSAPP, GA4_ID, PROVISIONAL.
+app.js              Menú mobile + GA4 (apagada por ANALYTICS_ENABLED) + eventos + UTMs.
+config.js           Config única JS: SITE_URL, BOOKING_URL, WHATSAPP, GA4_ID,
+                    PROVISIONAL, ANALYTICS_ENABLED.
+robots.txt          Indexación permitida + referencia al sitemap.
+sitemap.xml         Única URL del sitio (one-pager).
 public/
   hero-salon.webp            Placeholders on-brand (reemplazar por fotos reales).
   estudio-recepcion.webp
@@ -24,7 +27,7 @@ public/
   estudio-detalle.webp
   fonts/                     Anton + Montserrat (subset latin, woff2).
   favicon.ico, apple-touch-icon.png
-nginx.conf          Cabeceras de seguridad + cache + X-Robots-Tag noindex.
+nginx.conf          Cabeceras de seguridad + cache + 301 del dominio provisional.
 Dockerfile          nginx:alpine + adaptación a ${PORT} de Coolify.
 .dockerignore
 ```
@@ -74,10 +77,18 @@ Recomendado: exportar a `.webp`, ancho ≤ 1600px, calidad ~80.
 - Reservas y WhatsApp son enlaces directos (`target="_blank"`), no iframes → sin contenido mixto.
 - Cache: HTML/JS/CSS `no-cache` (revalidan), assets `expires 7d`.
 
-## Medición (GA4) — lista, apagada
+## Medición (GA4) — lista, apagada · **PENDIENTE ABIERTO**
 
-`config.js` trae `GA4_ID: "G-XXXXXXXXXX"` (placeholder) y `PROVISIONAL: true`. Mientras
-`PROVISIONAL` sea `true`, **GA4 no carga**. Al ponerlo en `false` y con un `GA4_ID` real, `app.js`:
+`config.js` trae `GA4_ID: "G-XXXXXXXXXX"` (placeholder) y `ANALYTICS_ENABLED: false`. La analítica
+tiene su **propio interruptor**, separado de `PROVISIONAL`: la migración de dominio no la enciende.
+Mientras `ANALYTICS_ENABLED` sea `false`, **GA4 no carga** (y aunque se pusiera en `true`, `app.js`
+igual aborta si `GA4_ID` sigue siendo el placeholder — doble red).
+
+**Para activarla hacen falta dos pasos, en este orden:**
+1. Crear la propiedad GA4 sobre `laxergyestudio.com` y copiar el ID real (`G-…`) a `GA4_ID`.
+2. Poner `ANALYTICS_ENABLED: true`, redeploy y verificar en GA4 → Tiempo real.
+
+Con ambos hechos, `app.js`:
 - carga `gtag.js`,
 - dispara `reserve_click` en los CTA de reservar y `whatsapp_click` en los enlaces `wa.me`
   (listener delegado por `data-analytics`, sin datos personales),
@@ -102,22 +113,42 @@ Mismo patrón que las otras landings del equipo (Landing-Hogar).
 
 > Coolify genera los labels de Traefik y gestiona el certificado; no se editan labels a mano.
 
-## Migración a laxergy.com (al recibir el primer pago)
+## Migración a laxergyestudio.com — ✅ EJECUTADA (2026-07-25)
 
-Checklist exacto. Todo lo dependiente del dominio está concentrado; son pocos cambios:
+El dominio definitivo resultó ser **`laxergyestudio.com`** (no `laxergy.com`, que no estaba
+disponible). Checklist completo, ya aplicado:
 
-1. **DNS:** en Cloudflare, apuntar `laxergy.com` (A `@` → `23.94.236.166`) y `www` (CNAME → `laxergy.com`).
-2. **Coolify:** agregar `https://laxergy.com` como dominio de la misma app; reemitir el certificado
-   Let's Encrypt. (Opcional: dejar `laxergy.techcam.com.ar` como redirección o darlo de baja.)
-3. **`index.html` → bloque `SITE_URL` del `<head>`:** cambiar `laxergy.techcam.com.ar` por `laxergy.com`
-   en `canonical`, `og:url`, `og:image` **y** en el JSON-LD (`url`, `image`).
-4. **`index.html`:** borrar la etiqueta `<meta name="robots" content="noindex, nofollow">`.
-5. **`nginx.conf`:** borrar la línea `add_header X-Robots-Tag "noindex, nofollow" always;`
-   (o cambiar el valor por `all`).
-6. **`config.js`:** poner `PROVISIONAL: false`, `SITE_URL: "https://laxergy.com"` y el `GA4_ID` real
-   (crear antes la propiedad GA4 del dominio final).
-7. Redeploy. Verificar: candado válido en laxergy.com, `curl -I` ya **sin** `X-Robots-Tag: noindex`,
-   GA4 recibiendo eventos, y agregar `sitemap.xml` + `robots.txt` si se quiere indexación.
+1. ✅ **DNS (Cloudflare):** `A @` y `A www` → `23.94.236.166`, ambos en **DNS only** (nube gris).
+   La nube gris es deliberada: permite que Let's Encrypt valide por HTTP contra el bunker.
+2. ✅ **Coolify:** los tres dominios conviven en la misma app
+   (`https://laxergyestudio.com,https://www.laxergyestudio.com,https://laxergy.techcam.com.ar`).
+   Certificados Let's Encrypt emitidos para apex y `www`.
+3. ✅ **`index.html` → bloque `SITE_URL` del `<head>`:** `canonical`, `og:url`, `og:image` y el
+   JSON-LD (`url`, `image`) apuntan al dominio nuevo. `address` (Carrizal) y `areaServed`
+   (Altos Mirandinos) **no se tocaron** — ver criterio geográfico D-14.
+4. ✅ **`index.html`:** eliminada la etiqueta `<meta name="robots" content="noindex, nofollow">`.
+5. ✅ **`nginx.conf`:** eliminada la línea `add_header X-Robots-Tag "noindex, nofollow" always;`.
+6. ✅ **`config.js`:** `SITE_URL` al dominio nuevo, `PROVISIONAL: false` y `ANALYTICS_ENABLED: false`
+   como flag independiente. GA4 sigue apagada a propósito (ver "Medición").
+7. ✅ **`robots.txt` + `sitemap.xml`** creados (indexación permitida, una sola URL) y agregados al
+   `COPY` del Dockerfile.
+8. ✅ **301 del dominio provisional:** `nginx.conf` tiene un server block que matchea
+   `laxergy.techcam.com.ar` y responde `301` a `https://laxergyestudio.com$request_uri`
+   (conserva path y query). Los enlaces ya difundidos siguen funcionando.
+
+> **Cuidado con el `sed` del Dockerfile.** Al agregar el segundo server block, el patrón pasó de
+> `s/listen 80;/…/` a `s/listen 80/…/` (**sin** el `;`), porque el bloque default declara
+> `listen 80 default_server;`. Con el patrón viejo esa línea no se reescribía y nginx quedaba
+> escuchando en el puerto 80 en vez del `${PORT}` que inyecta Coolify → la app no respondía.
+> Si se agregan más `listen`, verificar siempre con
+> `docker exec <container> grep listen /etc/nginx/conf.d/default.conf`.
+
+### Pendientes tras la migración
+
+- **GA4 sin activar** (`ANALYTICS_ENABLED: false`, `GA4_ID` en placeholder). Falta crear la
+  propiedad del dominio nuevo. Ver "Medición (GA4)".
+- **Foto ancha dedicada para el hero** (hoy usa la recepción oscurecida).
+- **Search Console:** dar de alta `laxergyestudio.com` y enviar el sitemap.
 
 > Nota: al ser un sitio estático sin build step, no hay un único flag que apague TODO de golpe;
-> este checklist es el equivalente (bloque `SITE_URL` en el `<head>` + `config.js` + 2 líneas de noindex).
+> lo dependiente del dominio está concentrado en el bloque `SITE_URL` del `<head>` + `config.js`.
