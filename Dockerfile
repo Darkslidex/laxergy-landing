@@ -13,6 +13,10 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY index.html styles.css app.js config.js preview.css preview.js /usr/share/nginx/html/
 COPY public/ /usr/share/nginx/html/public/
 
+# Cuerpo de la sonda de salud. Es un archivo y no un `return` del nginx.conf para
+# que el allow/deny del location sí se evalúe (ver el comentario allí).
+RUN printf 'ok\n' > /usr/share/nginx/html/_salud
+
 EXPOSE 80
 
 # Healthcheck contra el puerto real (Coolify inyecta PORT; se expande en runtime).
