@@ -1,0 +1,58 @@
+/* ══ SOLO PREVIEW · estilos del panel de variantes ═══════════════════════════
+   Este archivo y preview.js existen únicamente en la rama preview/fotos-aprobadas.
+   Al aprobar las fotos se borran los dos y se quita su <link>/<script> del HTML. ── */
+
+.pv-panel{
+  position:fixed;right:16px;bottom:16px;z-index:200;
+  width:min(272px,calc(100vw - 32px));
+  font-family:'Montserrat',sans-serif;color:#EDE4D6;
+  background:rgba(23,19,16,.94);border:1px solid rgba(202,158,103,.34);
+  border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.45);
+  backdrop-filter:blur(2px)}
+
+.pv-cabecera{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 13px;cursor:pointer;user-select:none;
+  border-bottom:1px solid rgba(202,158,103,.18)}
+.pv-panel.pv-plegado .pv-cabecera{border-bottom:none}
+.pv-titulo{font-size:10px;font-weight:600;letter-spacing:.2em;color:#ca9e67}
+.pv-flecha{font-size:10px;color:rgba(237,228,214,.6);transition:transform .2s ease}
+.pv-panel.pv-plegado .pv-flecha{transform:rotate(-90deg)}
+
+.pv-cuerpo{padding:13px}
+.pv-panel.pv-plegado .pv-cuerpo{display:none}
+
+.pv-grupo{margin-bottom:14px}
+.pv-etiqueta{
+  display:block;font-size:9px;font-weight:600;letter-spacing:.16em;
+  color:rgba(237,228,214,.55);margin-bottom:7px}
+.pv-opciones{display:flex;gap:7px}
+
+.pv-boton{
+  flex:1;padding:9px 6px;cursor:pointer;
+  font-family:inherit;font-size:11px;font-weight:600;letter-spacing:.04em;
+  color:rgba(237,228,214,.78);
+  background:transparent;border:1px solid rgba(202,158,103,.28);border-radius:3px;
+  transition:border-color .18s ease,color .18s ease,background .18s ease}
+.pv-boton:hover{border-color:rgba(202,158,103,.55);color:#EDE4D6}
+.pv-boton[aria-pressed="true"]{
+  background:rgba(202,158,103,.16);border-color:#ca9e67;color:#ca9e67}
+
+.pv-ocultar{
+  width:100%;padding:9px;cursor:pointer;
+  font-family:inherit;font-size:10px;font-weight:600;letter-spacing:.14em;
+  color:rgba(237,228,214,.6);
+  background:transparent;border:1px solid rgba(237,228,214,.16);border-radius:3px;
+  transition:color .18s ease,border-color .18s ease}
+.pv-ocultar:hover{color:#EDE4D6;border-color:rgba(237,228,214,.4)}
+
+.pv-nota{
+  margin:9px 0 0;font-size:9px;line-height:1.5;
+  color:rgba(237,228,214,.4);text-align:center}
+
+.pv-panel[hidden]{display:none}
+
+/* En pantallas chicas el panel se apoya en el borde inferior a todo el ancho */
+@media (max-width:520px){
+  .pv-panel{right:12px;left:12px;bottom:12px;width:auto}
+}

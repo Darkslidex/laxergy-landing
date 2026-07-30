@@ -6,6 +6,11 @@
 <title>Laxergy Estudio · Baile, yoga, pilates y funcional en los Altos Mirandinos</title>
 <meta name="description" content="Estudio fitness presencial en los Altos Mirandinos: baile, yoga, pilates, barré y entrenamiento funcional en grupos reducidos. Reserva tu clase.">
 
+<!-- ══ SOLO PREVIEW · no debe llegar a main ═══════════════════════════
+     Entorno de vista previa para aprobación de fotos. Capa 1 de noindex
+     (la capa 2 es el header X-Robots-Tag del nginx.conf del preview). ── -->
+<meta name="robots" content="noindex, nofollow">
+
 <!-- ═════════════════════════════════════════════════════════════════
      SITE_URL · dominio canónico (https://laxergyestudio.com desde el
      2026-07-25). ÚNICO lugar a cambiar en el HTML si el dominio cambia:
@@ -18,7 +23,7 @@
 <meta property="og:title" content="Laxergy Estudio · Movimiento con intención en los Altos Mirandinos">
 <meta property="og:description" content="Baile, yoga, pilates, barré y entrenamiento funcional en grupos reducidos. Reserva tu clase.">
 <meta property="og:url" content="https://laxergyestudio.com/">
-<meta property="og:image" content="https://laxergyestudio.com/public/hero-salon-v1.webp">
+<meta property="og:image" content="https://laxergyestudio.com/public/hero-nichos-v2.webp">
 <!-- ═════════════════════════════════════════════════════════════════ -->
 
 <meta name="theme-color" content="#171310">
@@ -27,10 +32,13 @@
 
 <!-- Preload solo de la fuente principal (titulares) + imagen LCP del hero -->
 <link rel="preload" href="public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="public/hero-salon-v1.webp" as="image" fetchpriority="high">
+<link rel="preload" href="public/hero-nichos-v2.webp" as="image" fetchpriority="high"
+      imagesrcset="public/hero-nichos-v2-1200.webp 1200w, public/hero-nichos-v2.webp 1600w" imagesizes="100vw">
 <link rel="stylesheet" href="styles.css">
+<!-- SOLO PREVIEW · estilos del panel de variantes. No debe llegar a main. -->
+<link rel="stylesheet" href="preview.css">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExerciseGym","name":"Laxergy Estudio","slogan":"El movimiento es esfuerzo, bienestar y evolución consciente","url":"https://laxergyestudio.com/","image":"https://laxergyestudio.com/public/hero-salon-v1.webp","address":{"@type":"PostalAddress","streetAddress":"C.C. Monte Bello Plaza, local 19","addressLocality":"Carrizal","addressRegion":"Miranda","addressCountry":"VE"},"areaServed":"Altos Mirandinos, estado Miranda, Venezuela","telephone":"+584246446679","email":"laxergybienestar@gmail.com","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/laxergybienestar"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExerciseGym","name":"Laxergy Estudio","slogan":"El movimiento es esfuerzo, bienestar y evolución consciente","url":"https://laxergyestudio.com/","image":"https://laxergyestudio.com/public/hero-nichos-v2.webp","address":{"@type":"PostalAddress","streetAddress":"C.C. Monte Bello Plaza, local 19","addressLocality":"Carrizal","addressRegion":"Miranda","addressCountry":"VE"},"areaServed":"Altos Mirandinos, estado Miranda, Venezuela","telephone":"+584246446679","email":"laxergybienestar@gmail.com","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/laxergybienestar"]}</script>
 
 <script src="config.js" defer></script>
 <script src="app.js" defer></script>
@@ -68,9 +76,12 @@
 <!-- [01] HERO -->
 <section id="top" style="position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden">
   <div style="position:absolute;inset:0">
-    <img class="slot-img" src="public/hero-salon-v1.webp" alt="Salón de Laxergy Estudio: barras doradas y espejos" width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async">
+    <img class="slot-img" src="public/hero-nichos-v2.webp"
+         srcset="public/hero-nichos-v2-1200.webp 1200w, public/hero-nichos-v2.webp 1600w" sizes="100vw"
+         alt="Nichos con luz LED dorada y rodillos de pilates en soportes de madera, junto a la barra y el espejo del salón"
+         width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async">
   </div>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,16,.45) 0%,rgba(23,19,16,.55) 45%,rgba(23,19,16,.92) 100%);pointer-events:none"></div>
+  <div class="hero-scrim"></div>
   <div style="position:relative;z-index:2;pointer-events:none;max-width:1240px;margin:0 auto;width:100%;padding:140px clamp(16px,4vw,40px) clamp(56px,8vh,96px)">
     <h1 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(34px,5.6vw,74px);line-height:1.08;letter-spacing:.015em;color:#F5EFE6;margin:0;max-width:19ch;text-wrap:pretty">EL MOVIMIENTO ES ESFUERZO, BIENESTAR Y <span style="color:#ca9e67">EVOLUCIÓN CONSCIENTE.</span></h1>
     <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.65;color:rgba(237,228,214,.85);max-width:52ch;margin:22px 0 34px">Estudio fitness presencial en los Altos Mirandinos. Baile, yoga, pilates y entrenamiento funcional en un espacio diseñado para que entrenes con intención.</p>
@@ -88,9 +99,11 @@
     <h2 style="font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:.02em;color:#171310;margin:0 0 18px">UN ESPACIO PENSADO PARA TI</h2>
     <p style="font-size:16px;line-height:1.7;max-width:58ch;margin:0 0 44px">Salón amplio, iluminación cálida y equipamiento cuidado. Entrenas en grupos reducidos, con instructores que te acompañan clase a clase.</p>
     <div class="studio-gallery">
-      <div class="g-recepcion"><img class="slot-img" src="public/estudio-recepcion-v2.webp" alt="Recepción de Laxergy Estudio: logo retroiluminado" width="760" height="576" loading="lazy" decoding="async"></div>
-      <div class="g-salon"><img class="slot-img" src="public/estudio-salon-v1.webp" alt="Salón de clases" width="900" height="560" loading="lazy" decoding="async"></div>
-      <div class="g-detalle"><img class="slot-img" src="public/estudio-detalle-v1.webp" alt="Detalle del espacio" width="900" height="560" loading="lazy" decoding="async"></div>
+      <!-- La foto de cada tile la decide el ratio nativo disponible, no el nombre de la
+           clase: g-recepcion es el tile grande (1.363) y g-salon/g-detalle los chicos (2.083). -->
+      <div class="g-recepcion"><img class="slot-img" src="public/estudio-detalle-v2.webp" alt="Pared terracota con el lema del estudio en letras negras en relieve" width="957" height="702" loading="lazy" decoding="async"></div>
+      <div class="g-salon"><img class="slot-img" src="public/estudio-salon-v2.webp" alt="Alumnas en colchonetas durante una clase, frente a los espejos con luz LED del salón" width="607" height="291" loading="lazy" decoding="async"></div>
+      <div class="g-detalle"><img class="slot-img" src="public/estudio-recepcion-v3.webp" alt="Logo retroiluminado de Laxergy con la leyenda Wellness Fitness Movement en la recepción" width="1080" height="518" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -193,5 +206,8 @@
   <svg width="24" height="24" viewBox="0 0 24 24" fill="#ca9e67" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.2-.7l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3z"></path></svg>
 </a>
 
+
+<!-- SOLO PREVIEW · panel de variantes. No debe llegar a main. -->
+<script src="preview.js" defer></script>
 </body>
 </html>

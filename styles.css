@@ -47,6 +47,40 @@ img{max-width:100%}
 /* Imagen que llena su contenedor (reemplaza los image-slot del diseño) */
 .slot-img{width:100%;height:100%;object-fit:cover;display:block}
 
+/* ══ SOLO PREVIEW · scrim del hero ═══════════════════════════════════════════
+   Dos capas en vez del oscurecido vertical plano anterior: la primera sostiene
+   el pie del hero, la segunda densifica el flanco izquierdo (donde caen el H1,
+   el subtítulo y los CTA) y se apaga hacia la derecha, que es donde están los
+   nichos iluminados. Un plano parejo aplanaría el rango tonal de la foto.
+   Sin blur: la legibilidad se resuelve con densidad, no desenfocando la foto.
+   Los valores están calibrados contra contraste medido, no a ojo: la foto es muy
+   luminosa (pared amarilla más LED), y un velo liviano dejaba el H1 en 1.8:1
+   contra el 3:1 que pide WCAG para texto grande. Las dos variantes de abajo
+   cumplen; se diferencian en cuánto brillo conservan los nichos de la derecha. ── */
+.hero-scrim{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(23,19,16,.32) 0%,rgba(23,19,16,.46) 40%,rgba(23,19,16,.90) 100%),
+    linear-gradient(100deg,rgba(23,19,16,.70) 0%,rgba(23,19,16,.52) 38%,rgba(23,19,16,.26) 64%,rgba(23,19,16,0) 84%)}
+
+/* Variante intensa (la alterna el panel de vista previa) */
+body.scrim-denso .hero-scrim{
+  background:
+    linear-gradient(180deg,rgba(23,19,16,.46) 0%,rgba(23,19,16,.60) 40%,rgba(23,19,16,.95) 100%),
+    linear-gradient(100deg,rgba(23,19,16,.80) 0%,rgba(23,19,16,.64) 38%,rgba(23,19,16,.40) 66%,rgba(23,19,16,0) 90%)}
+
+/* En una sola columna el texto ocupa todo el ancho: la capa lateral deja de
+   proteger al H1 y el peso tiene que pasar al degradado vertical. */
+@media (max-width:1080px){
+  .hero-scrim{
+    background:
+      linear-gradient(180deg,rgba(23,19,16,.42) 0%,rgba(23,19,16,.56) 38%,rgba(23,19,16,.93) 100%),
+      linear-gradient(100deg,rgba(23,19,16,.36) 0%,rgba(23,19,16,.22) 50%,rgba(23,19,16,0) 88%)}
+  body.scrim-denso .hero-scrim{
+    background:
+      linear-gradient(180deg,rgba(23,19,16,.54) 0%,rgba(23,19,16,.68) 38%,rgba(23,19,16,.96) 100%),
+      linear-gradient(100deg,rgba(23,19,16,.48) 0%,rgba(23,19,16,.30) 50%,rgba(23,19,16,0) 90%)}
+}
+
 /* Galería del estudio — desktop (equivale al layout <sc-if isDesktop>) */
 .studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:250px 250px;gap:16px}
 .studio-gallery .g-recepcion{grid-row:1 / span 2}
