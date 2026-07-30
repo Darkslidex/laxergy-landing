@@ -82,7 +82,10 @@ body.scrim-denso .hero-scrim{
 }
 
 /* Galería del estudio — desktop (equivale al layout <sc-if isDesktop>) */
-.studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:250px 250px;gap:16px}
+/* SOLO PREVIEW: las filas pasan de 250px a 360px. Las fotos de las alumnas son
+   verticales y en el cuadro anterior entraba apenas el 41%; con el cuadro más
+   alto entra el 75% y se lee la escena completa en lugar de un primer plano. */
+.studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:360px 360px;gap:16px}
 .studio-gallery .g-recepcion{grid-row:1 / span 2}
 
 /* Alternancias responsive (equivalen a los <sc-if isDesktop/isMobile>) */
@@ -103,9 +106,12 @@ body.scrim-denso .hero-scrim{
   .wa-float{display:flex}
   /* Galería — mobile (equivale al layout <sc-if isMobile>) */
   .studio-gallery{grid-template-columns:1fr;grid-template-rows:none}
-  .studio-gallery .g-recepcion{grid-row:auto;height:300px}
+  /* SOLO PREVIEW: 300px -> 480px, por el mismo motivo que en desktop */
+  .studio-gallery .g-recepcion{grid-row:auto;height:480px}
   .studio-gallery .g-salon{height:220px}
-  .studio-gallery .g-detalle{height:220px}
+  /* SOLO PREVIEW: 220px -> 260px. Acá va la segunda foto con alumnas, y a 220px
+     el cuadro quedaba en 1.627 contra el 1.447 de la imagen: recortaba de más. */
+  .studio-gallery .g-detalle{height:260px}
 }
 @media (min-width:1081px){
   .nav-mobile{display:none !important}
