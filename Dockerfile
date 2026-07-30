@@ -16,11 +16,11 @@ COPY public/ /usr/share/nginx/html/public/
 EXPOSE 80
 
 # Healthcheck contra el puerto real (Coolify inyecta PORT; se expande en runtime).
-# Basic Auth responde 401 a una petición sin credenciales, así que se consulta con
-# las del propio contenedor: un 401 acá significaría que la protección se rompió.
+# Apunta a /_salud, que nginx expone sin Basic Auth y solo al loopback: el wget de
+# BusyBox no soporta --user/--password, y pasar las credenciales por --header las
+# volcaría a los logs del deploy en cada intento fallido.
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
-  CMD wget -q -O /dev/null --user="${PREVIEW_USER}" --password="${PREVIEW_PASS}" \
-      "http://127.0.0.1:${PORT:-80}/" || exit 1
+  CMD wget -q -O /dev/null "http://127.0.0.1:${PORT:-80}/_salud" || exit 1
 
 # Arranque:
 #   1. Exige PREVIEW_USER y PREVIEW_PASS. Si falta alguna, nginx no levanta: un
