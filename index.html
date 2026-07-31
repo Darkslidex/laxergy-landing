@@ -29,7 +29,12 @@
 <link rel="preload" href="public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="public/hero-nichos-v2.webp" as="image" fetchpriority="high"
       imagesrcset="public/hero-nichos-v2-1200.webp 1200w, public/hero-nichos-v2.webp 1600w" imagesizes="100vw">
-<link rel="stylesheet" href="styles.css">
+<!-- El sufijo ?v= es el cache-buster del CSS. Cloudflare sirve styles.css con
+     max-age de 4 h, así que un visitante que ya tenía el sitio cargado seguiría
+     usando el CSS anterior con las imágenes nuevas y vería la galería rota. El
+     HTML sale con no-cache, así que al cambiar este valor todos piden el CSS de
+     nuevo. Actualizarlo en cada cambio de styles.css. -->
+<link rel="stylesheet" href="styles.css?v=20260731">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ExerciseGym","name":"Laxergy Estudio","slogan":"El movimiento es esfuerzo, bienestar y evolución consciente","url":"https://laxergyestudio.com/","image":"https://laxergyestudio.com/public/hero-nichos-v2.webp","address":{"@type":"PostalAddress","streetAddress":"C.C. Monte Bello Plaza, local 19","addressLocality":"Carrizal","addressRegion":"Miranda","addressCountry":"VE"},"areaServed":"Altos Mirandinos, estado Miranda, Venezuela","telephone":"+584246446679","email":"laxergybienestar@gmail.com","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/laxergybienestar"]}</script>
 
