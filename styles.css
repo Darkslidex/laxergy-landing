@@ -47,8 +47,35 @@ img{max-width:100%}
 /* Imagen que llena su contenedor (reemplaza los image-slot del diseño) */
 .slot-img{width:100%;height:100%;object-fit:cover;display:block}
 
+/* ══ Scrim del hero ═════════════════════════════════════════════════════════
+   Dos capas en vez del oscurecido vertical plano anterior: la primera sostiene
+   el pie del hero, la segunda densifica el flanco izquierdo (donde caen el H1,
+   el subtítulo y los CTA) y se apaga hacia la derecha, que es donde están los
+   nichos iluminados. Un plano parejo aplanaría el rango tonal de la foto.
+   Sin blur: la legibilidad se resuelve con densidad, no desenfocando la foto.
+   Los valores están calibrados contra contraste medido, no a ojo: la foto es muy
+   luminosa (pared amarilla más LED), y un velo liviano dejaba el H1 en 1.8:1
+   contra el 3:1 que pide WCAG para texto grande. Las dos variantes de abajo
+   cumple con margen; el peor caso medido es 5,29:1 en el subtítulo de mobile. ── */
+.hero-scrim{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(23,19,16,.32) 0%,rgba(23,19,16,.46) 40%,rgba(23,19,16,.90) 100%),
+    linear-gradient(100deg,rgba(23,19,16,.70) 0%,rgba(23,19,16,.52) 38%,rgba(23,19,16,.26) 64%,rgba(23,19,16,0) 84%)}
+
+/* En una sola columna el texto ocupa todo el ancho: la capa lateral deja de
+   proteger al H1 y el peso tiene que pasar al degradado vertical. */
+@media (max-width:1080px){
+  .hero-scrim{
+    background:
+      linear-gradient(180deg,rgba(23,19,16,.42) 0%,rgba(23,19,16,.56) 38%,rgba(23,19,16,.93) 100%),
+      linear-gradient(100deg,rgba(23,19,16,.36) 0%,rgba(23,19,16,.22) 50%,rgba(23,19,16,0) 88%)}
+}
+
 /* Galería del estudio — desktop (equivale al layout <sc-if isDesktop>) */
-.studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:250px 250px;gap:16px}
+/* Filas de 360px (antes 250px): las fotos de las alumnas son verticales y en el
+   cuadro más bajo entraba apenas el 41% de la imagen; así entra el 75% y se lee
+   la escena completa en lugar de un primer plano. */
+.studio-gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:360px 360px;gap:16px}
 .studio-gallery .g-recepcion{grid-row:1 / span 2}
 
 /* Alternancias responsive (equivalen a los <sc-if isDesktop/isMobile>) */
@@ -69,9 +96,12 @@ img{max-width:100%}
   .wa-float{display:flex}
   /* Galería — mobile (equivale al layout <sc-if isMobile>) */
   .studio-gallery{grid-template-columns:1fr;grid-template-rows:none}
-  .studio-gallery .g-recepcion{grid-row:auto;height:300px}
+  /* 480px (antes 300px), por el mismo motivo que en desktop */
+  .studio-gallery .g-recepcion{grid-row:auto;height:480px}
   .studio-gallery .g-salon{height:220px}
-  .studio-gallery .g-detalle{height:220px}
+  /* 260px (antes 220px). Acá va la segunda foto con alumnas, y a 220px el cuadro
+     quedaba en 1.627 contra el 1.447 de la imagen: recortaba de más. */
+  .studio-gallery .g-detalle{height:260px}
 }
 @media (min-width:1081px){
   .nav-mobile{display:none !important}
